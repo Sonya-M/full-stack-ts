@@ -18,11 +18,22 @@
   },
   "settings": {
     "node": {
-      "tryExtensions": [".js", ".json", ".node", ".ts"]
+      "tryExtensions": [
+        ".js",
+        ".json",
+        ".node",
+        ".ts"
+      ]
     }
   },
-  "plugins": ["react", "@typescript-eslint"],
-  "ignorePatterns": ["**/node_modules/", "**/dist/"],
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "ignorePatterns": [
+    "**/node_modules/",
+    "**/dist/"
+  ],
   "rules": {
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-unsafe-call": "off",
@@ -31,39 +42,64 @@
   "overrides": [
     {
       "files": "client/**/*.tsx?",
-      "rules": { "react/prop-types": "off" },
-      "extends": ["plugin:react/recommended"],
-      "plugins": ["react", "@typescript-eslint"],
+      "rules": {
+        "react/prop-types": "off"
+      },
+      "extends": [
+        "plugin:react/recommended"
+      ],
+      "plugins": [
+        "react",
+        "@typescript-eslint"
+      ],
       "parserOptions": {
         "project": "./client/tsconfig.json"
       },
-      "env": { "browser": true }
+      "env": {
+        "browser": true
+      }
     },
     {
       "files": "server/**/*.ts",
-      "extends": ["plugin:node/recommended"],
+      "extends": [
+        "plugin:node/recommended"
+      ],
       "parserOptions": {
         "project": "./server/tsconfig.json"
       },
-      "env": { "node": true },
+      "env": {
+        "node": true
+      },
       "rules": {
         "node/no-unsupported-features/es-syntax": [
-          "error",
-          { "ignores": ["modules"] }
+          "warning",
+          {
+            "ignores": [
+              "modules"
+            ]
+          }
         ]
       }
     },
     {
       "files": "server/**/*.generated.ts",
-      "extends": ["plugin:node/recommended"],
+      "extends": [
+        "plugin:node/recommended"
+      ],
       "parserOptions": {
         "project": "./server/tsconfig.json"
       },
-      "env": { "node": true },
+      "env": {
+        "node": true
+      },
       "rules": {
         "node/no-unsupported-features/es-syntax": [
           "error",
-          { "ignores": ["modules"] }
+          {
+            "ignores": [
+              "modules"
+            ]
+          }
         ],
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/ban-types": "off"

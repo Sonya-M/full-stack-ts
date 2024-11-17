@@ -20,7 +20,14 @@ export async function createApolloServer(
 ): Promise<ApolloServer<ExpressContext>> {
   const server = new ApolloServer({
     schema: addResolversToSchema({ schema: SCHEMA, resolvers }),
-    context: (): TwitterResolverContext => ({ db }),
+    context: (): TwitterResolverContext => {
+      return {
+        db,
+        dbTweetCache: {},
+        dbTweetToFavoriteCountMap: {},
+        dbUserCache: {},
+      };
+    },
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });
   await server.start();
