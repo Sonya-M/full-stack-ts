@@ -3,6 +3,10 @@ type Query {
   suggestions: [Suggestion!]!
   tweets: [Tweet!]!
 }
+type Mutation {
+  createTweet(userId: String!, body: String!): Tweet!
+}
+
 type User {
   id: String!
   name: String!
@@ -12,6 +16,7 @@ type User {
   createdAt: String!
   updatedAt: String!
   stats: UserStats
+  favorites: [Favorite!]
 }
 type Suggestion {
   name: String!
@@ -36,4 +41,11 @@ type TweetStats {
   favoriteCount: Int!
   retweetCount: Int!
   commentCount: Int!
+}
+type Favorite {
+  id: String!
+  tweet: Tweet!
+  user: User!
+  createdAt: String!
+  updatedAt: String!
 }
